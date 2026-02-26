@@ -1,0 +1,26 @@
+Generate a complete YAML-based AWS CloudFormation template.
+
+Requirements:
+
+- Output YAML only. Do not include explanations or comments outside the template.
+- The template must create an AWS VPC.
+- The VPC must be deployed in the AWS us-west-2 region.
+- The VPC must span a minimum of 3 Availability Zones.
+- Create at least three subnets, each in a different Availability Zone:
+    - us-west-2a
+    - us-west-2b
+    - us-west-2c
+- Use a VPC CIDR block of 10.0.0.0/16.
+- Use subnet CIDR blocks within the VPC range (for example 10.0.1.0/24, 10.0.2.0/24, 10.0.3.0/24).
+- Include a CloudFormation Parameter named StudentID.
+- The VPC must include a Name tag formatted exactly as:
+      VPC-<StudentID>
+- Use:
+      !Sub "VPC-${StudentID}"
+  for the Name tag value.
+- Use AWS::EC2::VPC and AWS::EC2::Subnet resources.
+- Include Outputs for:
+    - VpcId
+    - SubnetIds (comma-delimited list)
+
+Ensure the template is valid CloudFormation YAML syntax.
